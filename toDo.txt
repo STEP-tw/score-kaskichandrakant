@@ -1,0 +1,10 @@
+creating new game having score.
+   game should have the addScore and getScore.
+   game should add the 100 bonus pt after eating every 10 foods.
+
+changes in snake
+   adding function which will specify weather the sanke eaten
+       the 10 consicative foods or not.
+   asking snake about its length.
+
+changes in main 

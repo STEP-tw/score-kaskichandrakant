@@ -5,17 +5,28 @@ let numberOfCols=120;
 
 let animator=undefined;
 
+let displayScore=function(){
+  let score=game.getScore();
+  document.getElementById('scoreBoard').innerText=`ur score is ${score}`
+}
+
+const updateScore=function(){
+  snake.grow();
+  game.addScore();
+  createFood(numberOfRows,numberOfCols);
+  drawFood(food);
+}
+
 const animateSnake=function() {
   let oldHead=snake.getHead();
   let oldTail=snake.move();
   let head=snake.getHead();
+  displayScore();
   paintBody(oldHead);
   unpaintSnake(oldTail);
   paintHead(head);
-  if(head.isSameCoordAs(food)) {
-    snake.grow();
-    createFood(numberOfRows,numberOfCols);
-    drawFood(food);
+  if(snake.hasEatenTheFood(food)){
+    updateScore()
   }
 }
 
